@@ -6,5 +6,8 @@ reddit = praw.Reddit(
     user_agent = "WsbQuantTrading"
 )
 
-for submission in reddit.subreddit("wallstreetbets").hot(limit=10):
-    print(submission.title)
+wsb = reddit.subreddit("wallstreetbets")
+
+for submissions in wsb.new(limit=30):
+    print("author:", submissions.author, "karma:", (submissions.author).link_karma)
+
