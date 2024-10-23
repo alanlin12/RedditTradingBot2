@@ -14,10 +14,10 @@ topRedditors = defaultdict(int) #will store any unique reddit user with 75k+ kar
 top_k = 100 #limit to top 100 redditors
 
 try:
-    for post in wsb.hot(limit=1000):
+    for post in wsb.hot(limit=250):
         try:
             author = post.author
-            if(author and author.link_karma >= 75000):
+            if(author and author.link_karma >= 10000):
                 topRedditors[author.name] = max(topRedditors[author.name], author.link_karma)
 
         except AttributeError as e:
